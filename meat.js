@@ -398,6 +398,13 @@ bsnify: function(victim, param) {
 
         this.room.updateUser(this);
     },
+
+    background: function (url) {
+        this.room.emit("background", {
+            guid: this.guid,
+            url: sanitize(url),
+        });
+    },
 };
 
 class User {
