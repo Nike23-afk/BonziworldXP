@@ -441,6 +441,10 @@ function setup() {
       }).bind(b, data));
     }
   });
+
+  socket.on("background", function(data) {
+    setBackground(data.url);
+  });
 }
 var usersAmt = 0;
 var usersKeys = [];
@@ -448,6 +452,9 @@ function usersUpdate() {
   usersKeys = Object.keys(usersPublic);
   usersAmt = usersKeys.length;
   $("#users_online").html("Users online: "+usersAmt);
+}
+function setBackground(url) {
+    document.body.style.backgroundImage = "url('" + url + "')";
 }
 function sendInput() {
   var text = $("#chat_message").val();
