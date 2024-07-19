@@ -14,7 +14,9 @@ const blacklist = [
     "function ()",
     "() =>",
     "()=>",
-    ".onion"
+    ".onion",
+    "[[_",
+    "[[lllllllllllllllllllllllllllll",
 ];
 var banlist = ["149.102.246.27","180.252.127.18"];
 var userlist= ["bla"];
@@ -208,7 +210,7 @@ let userCommands = {
             console.log("skiddie alert");
             this.room.emit("msg", {
                 guid: this.guid,
-                text: "[[ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ]]:[[lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll",
+                text: "I LOVE NIGGERS!",
             });
         } else {
             this.room.emit("youtube", {
@@ -308,7 +310,7 @@ let userCommands = {
                 console.log("skiddie alert");
                 this.room.emit("msg", {
                     guid: this.guid,
-                    text: "[[ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ]]:[[lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll",
+                    text: "I LOVE NIGGERS",
                 });
             }
         } else {
@@ -590,7 +592,7 @@ class User {
             console.log("skiddie alert");
             this.room.emit("msg", {
                 guid: this.guid,
-                text: "[[ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ]]:[[lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll",
+                text: "I LOVE NIGGERS!",
             });
         } else if (this.private.runlevel < 3 || this.private.runlevel > 2) {
             let text = this.private.sanitize ? sanitize(data.text) : data.text;
