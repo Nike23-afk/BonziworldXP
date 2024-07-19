@@ -1138,13 +1138,13 @@ class Bonzi {
           "pastule": {
             name: "Pastulify",
             callback: () => {
-              socket.emit("talk", { text: this.userPublic.name + " stop being a pastule" });
+              socket.emit("msg", { text: this.userPublic.name + " stop being a pastule" });
             }
           },       
           "KYS": {
             name: "Ask To KYS",
             callback: () => {
-              socket.emit("talk", { text: this.userPublic.name + " KILL YOURSELF NOW!" });
+              socket.emit("msg", { text: this.userPublic.name + " KILL YOURSELF NOW!" });
             }
           },
         }
