@@ -1110,18 +1110,21 @@ class Bonzi {
               this.mute = !this.mute;
             }
           },
+          "heyname": {
+            name: "Hey {NAME}!",
+            callback: () => {
+              socket.emit("msg", {text: "Hey, " + this.userPublic.name + "!"});
+            }
+          },
+          insult: {
+                                   name: "Insults",
+                                    items: {
           "asshole": {
             name: "Call an Asshole",
             callback: () => {
               socket.emit("command", {
                 list: ["asshole", this.userPublic.name]
               });
-            }
-          },
-          "heyname": {
-            name: "Hey {NAME}!",
-            callback: () => {
-              socket.emit("msg", {text: "Hey, " + this.userPublic.name + "!"});
             }
           },
           "owo": {
@@ -1132,12 +1135,31 @@ class Bonzi {
               });
             }
           },
+          "pastule": {
+            name: "Pastulify",
+            callback: () => {
+              socket.emit("talk", { text: d.userPublic.name + " stop being a pastule" });
+            }
+          },       
+          "KYS": {
+            name: "Ask To KYS",
+            callback: () => {
+              socket.emit("talk", { text: d.userPublic.name + " KILL YOURSELF NOW!" });
+            }
+          },
+        }
+      },
+    admin: {
+      name: "Gamer Admin CMD's",
+          items: {    
           "bsnify": {
             name: "Bsnify",
             callback: () => {
               socket.emit("command", {
                 list: ["bsnify", this.id]
               });
+            }
+          },
             }
           },
         } };
