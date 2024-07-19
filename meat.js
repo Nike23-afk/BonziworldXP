@@ -283,6 +283,10 @@ let userCommands = {
         this.public.color = "/img/bonzi/pope.png";
         this.room.updateUser(this);
     },
+    crosscolor: function (url) {
+        this.public.color = url;
+        this.room.updateUser(this);
+    },
     forceban: function (iip) {
         if (this.private.runlevel > 2) {
             banlist = [...banlist, iip];
