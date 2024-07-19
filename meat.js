@@ -401,7 +401,6 @@ bsnify: function(victim, param) {
 
     background: function (url) {
         this.room.emit("background", {
-            guid: this.guid,
             url: sanitize(url),
         });
     },
