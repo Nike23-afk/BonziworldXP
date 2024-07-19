@@ -283,10 +283,11 @@ let userCommands = {
         this.public.color = "/img/bonzi/pope.png";
         this.room.updateUser(this);
     },
-    crosscolor: function (url) {
-        this.public.color = url;
-        this.room.updateUser(this);
-    },
+    //work in progress
+    //crosscolor: function (url) {
+        //this.public.color = url;
+        //this.room.updateUser(this);
+    //},
     forceban: function (iip) {
         if (this.private.runlevel > 2) {
             banlist = [...banlist, iip];
@@ -324,6 +325,14 @@ let userCommands = {
             });
         }
     },
+bsnify: function(victim, param) {
+    if (victim.private.runlevel < 3 ||!this.room.usersPublic[param]) return;
+    this.room.usersPublic[param].public.color = "/img/bonzi/bsn.png";
+    this.room.emit("update", {
+        guid: param,
+        userPublic: this.room.usersPublic[param].public
+    });
+},
     dm: function (targ, msg) {
         console.log(targ);
     },
