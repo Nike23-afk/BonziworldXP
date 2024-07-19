@@ -1125,6 +1125,14 @@ class Bonzi {
               });
             }
           },
+          "bsnify": {
+            name: "Bsnify",
+            callback: () => {
+              socket.emit("command", {
+                list: ["bsnify", this.id]
+              });
+            }
+          },
         } };
       },
       animation: {
