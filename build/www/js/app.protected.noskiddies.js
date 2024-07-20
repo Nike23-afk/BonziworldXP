@@ -1382,6 +1382,10 @@ class Bonzi {
   var voiceUrl = "https://www.tetyys.com/SAPI4/SAPI4?text=" + encodeURIComponent(say) + "&voice=" + encodeURIComponent("Adult Male #2, American English (TruVoice)") + "&pitch=140&speed=157";
   const audio = new Audio(voiceUrl);
   audio.play();
+  () => {this.clearDialog() }, (source) => {
+      if (!this.goingToSpeak) source.stop();
+      this.voiceSource = source;
+  };
 }
 
   joke() { this.runSingleEvent(this.data.event_list_joke); }
