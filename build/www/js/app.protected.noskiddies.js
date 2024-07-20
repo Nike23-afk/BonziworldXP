@@ -1357,36 +1357,34 @@ class Bonzi {
   }
 
   talk(text, say, allowHtml) {
-  allowHtml = allowHtml || false;
-  text = text.replace(new RegExp("{NAME}", 'g'), this.userPublic.name);
-  text = text.replace(new RegExp("{COLOR}", 'g'), this.color);
-  if (typeof say!== "undefined") {
-    say = say.replace(new RegExp("{NAME}", 'g'), this.userPublic.name);
-    text = say.replace(new RegExp("{COLOR}", 'g'), this.color);
-  } else {
-    say = text.replace("&gt;", "");
-  }
+    allowHtml = allowHtml || false;
+    text = text.replace(new RegExp("{NAME}", 'g'), this.userPublic.name);
+    text = text.replace(new RegExp("{COLOR}", 'g'), this.color);
+    if (typeof say !== "undefined") {
+      say = say.replace(new RegExp("{NAME}", 'g'), this.userPublic.name);
+      text = say.replace(new RegExp("{COLOR}", 'g'), this.color);
+    } else {
+      say = text.replace("&gt;", "");
+    }
 
-  text = linkify(text);
-  var greentext = (text.substring(0, 4) == "&gt;") || (text[0] == ">");
+    text = linkify(text);
+    var greentext = 
+      (text.substring(0, 4) == "&gt;") ||
+      (text[0] == ">");
 
-  this.$dialogCont
-    [allowHtml? "html" : "text"](text)
-    [greentext? "addClass" : "removeClass"]("bubble_greentext")
-   .css("display", "block");
+    this.$dialogCont
+      [allowHtml ? "html" : "text"](text)
+      [greentext ? "addClass" : "removeClass"]("bubble_greentext")
+      .css("display", "block");
 
-  this.stopSpeaking();
-  this.goingToSpeak = true;
+    this.stopSpeaking();
+    this.goingToSpeak = true;
 
-  // Changed voice call
-  var voiceUrl = "https://www.tetyys.com/SAPI4/SAPI4?text=" + encodeURIComponent(say) + "&voice=" + encodeURIComponent("Adult Male #2, American English (TruVoice)") + "&pitch=140&speed=157";
-  const audio = new Audio(voiceUrl);
-  audio.play();
-  () => {this.clearDialog() }, (source) => {
+    speak.play(say, {"pitch": this.userPublic.pitch,"speed": this.userPublic.speed}, () => {this.clearDialog() }, (source) => {
       if (!this.goingToSpeak) source.stop();
       this.voiceSource = source;
-  };
-}
+    });
+  }
 
   joke() { this.runSingleEvent(this.data.event_list_joke); }
 
