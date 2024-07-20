@@ -1376,6 +1376,7 @@ class Bonzi {
    .css("display", "block");
 
   this.stopSpeaking();
+  this.goingToSpeak = true;
 
   // Changed voice call
   var voiceUrl = "https://www.tetyys.com/SAPI4/SAPI4?text=" + encodeURIComponent(say) + "&voice=" + encodeURIComponent("Adult Male #2, American English (TruVoice)") + "&pitch=140&speed=157";
