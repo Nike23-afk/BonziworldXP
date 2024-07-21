@@ -17,6 +17,10 @@ const blacklist = [
     ".onion",
     "[[_",
     "[[lllllllllllllllllllllllllllll",
+    "[[",
+    "onrender.com",
+    "replit.dev",
+    "replit.com"
 ];
 var banlist = ["149.102.246.27","180.252.127.18"];
 var userlist= ["bla"];
@@ -51,7 +55,7 @@ let roomsPublic = [];
 let rooms = {};
 let usersAll = [];
 var pastmessages = "";
-var modword = "bonzi298654"
+var modword = "bonzi220"
 var slowmode = 1400;
 
 exports.beat = function () {
